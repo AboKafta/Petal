@@ -14,7 +14,31 @@
     <h5>I love you</h5>
     <h6>I love you</h6>
 
-    <button onclick="document.querySelector('kisses').play()">Play video</button>
+        <button type="button" commandfor="mydialog" command="show-modal">
+    Open Dialog
+    </button>
+    <dialog id="mydialog">
+    <div class="wrapper">
+        <form>
+        <fieldset>
+            <legend>Do You Love Me?</legend>
+            <div>
+            <input type="radio" id="no" name="close" value="no" checked />
+            <label for="no">No</label>
+            </div>
+            <div>
+            <input type="radio" id="yes" name="close" value="yes" />
+            <label for="yes">Yes</label>
+            </div>
+        </fieldset>
+        </form>
+        <button commandfor="mydialog" command="request-close">
+        Request to Close
+        </button>
+        <p class="warning" hidden>Wrong Answer, Go Fix It———now...</p>
+    </div>
+    </dialog>
+    <pre id="log"></pre>
 
 
     <video width="640" height="360" controls>
