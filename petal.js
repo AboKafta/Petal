@@ -1,16 +1,14 @@
-const dialog = document.querySelector("dialog");
-const radio = document.querySelector("form").elements["close"];
-const warning = document.querySelector(".warning");
+const dialog = document.getElementById("confirm-dialog");
 
-warning.hidden = false;
-
-dialog.addEventListener("cancel", (e) => {
-  if (!e.cancelable) return;
-  if (radio.value === "no") {
-    warning.hidden = false;
-    e.preventDefault();
-  } else {
-    warning.hidden = true;
-    log("I love you too :)")
+dialog.addEventListener("close", () => {
+  switch (dialog.returnValue) {
+    case "Yes":
+      log("Omg wait really? I love you too yayyy yipeee");
+      break;
+    case "No":
+      log("Oh its fine... I never loved you back anyway...");
+      break;
+    default:
+      log("Closed with value:", dialog.returnValue);
   }
 });

@@ -14,30 +14,22 @@
     <h5>I love you</h5>
     <h6>I love you</h6>
 
-    <button type="button" commandfor="mydialog" command="show-modal">
-    CLICK ME!!!!
-    </button>
-    <dialog id="mydialog">
-    <div class="wrapper">
-        <form>
-        <fieldset>
-            <legend>Do You Love Me?</legend>
-            <div>
-            <input type="radio" id="no" name="close" value="no" checked />
-            <label for="no">No</label>
-            </div>
-            <div>
-            <input type="radio" id="yes" name="close" value="yes" />
-            <label for="yes">Yes</label>
-            </div>
-        </fieldset>
-        </form>
-        <button commandfor="mydialog" command="request-close">
-        Submit Answer
+    <button commandfor="confirm-dialog" command="show-modal">CLICK ME!!!</button>
+    <dialog id="confirm-dialog">
+    <header>
+        <h1>Do You Love Me?</h1>
+    </header>
+    <p>Be Sure With Your Answer</p>
+    <footer>
+        <button commandfor="confirm-dialog" command="close" value="Yes">
+        Yes
         </button>
-        <p class="warning" hidden>Wrong Answer, Go Fix It———now...</p>
-    </div>
+        <button commandfor="confirm-dialog" command="close" value="No">
+        No
+        </button>
+    </footer>
     </dialog>
+
     <pre id="log"></pre>
 
 
