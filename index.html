@@ -5,6 +5,7 @@
         
         .big-button {
             font-size: 2rem;
+            text-emphasis-color: white;
             padding: 20px 40px;
             background-color: blueviolet;
             border: 3px solid rgb(118, 199, 249);
@@ -63,8 +64,9 @@
         dialog.addEventListener("close", () => {
             switch (dialog.returnValue) {
                 case "Yes":
-                    log("Omg wait really? I love you too yayyy yipeee. Here's one of my fav vids of us \n" + 
-                    "Here Are All The Nicknames I Call You: Love, Amor, Petal, My Pretty Petal, Sexy, Cutie, My Pretty Girl, sleepyhead, gorgeous, luscious, my queen, my princess, meu tudo, meu vida");
+                    log("Omg wait really? I love you too yayyy yipeee. Here Are All The Nicknames I Call You: Love, Amor, Petal, My Pretty Petal, Sexy, Cutie \n, My Pretty Girl, sleepyhead, gorgeous, luscious, my queen, my princess, meu tudo, meu vida" +
+                    "Here's one of my fav vids of us \n");
+                    
                     video.hidden = false;
                     break;
                 case "No":
