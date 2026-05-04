@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        
+        .big-button {
+            font-size: 2rem;
+            padding: 20px 40px;
+            border: 3px solid rgb(118, 199, 249);
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        .big-button:hover {
+            color: rgb(163, 240, 255);
+        }
+    </style>
+</head>
 <body>
 
     <h6>I love you</h6>
@@ -14,7 +29,10 @@
     <h5>I love you</h5>
     <h6>I love you</h6>
 
-    <button commandfor="confirm-dialog" command="show-modal">CLICK ME!!!</button>
+    <button class="big-button" commandfor="confirm-dialog" command="show-modal">
+        CLICK ME!!!
+    </button>
+
     <dialog id="confirm-dialog">
         <header>
             <h1>Do You Love Me?</h1>
@@ -28,25 +46,28 @@
 
     <pre id="log"></pre>
 
-    <video width="640" height="360" controls>
+    <video id="kissVideo" width="640" height="360" controls hidden>
         <source src="kisses.mp4" type="video/mp4">
     </video>
 
     <script>
         const dialog = document.getElementById("confirm-dialog");
         const logEl = document.getElementById("log");
+        const video = document.getElementById("kissVideo");
 
         function log(message) {
-            logEl.textContent += message + "\n";
+            logEl.textContent = message;
         }
 
         dialog.addEventListener("close", () => {
             switch (dialog.returnValue) {
                 case "Yes":
                     log("Omg wait really? I love you too yayyy yipeee");
+                    video.hidden = false;
                     break;
                 case "No":
                     log("Oh its fine... I never loved you back anyway...");
+                    video.hidden = true;
                     break;
                 default:
                     log("Closed with value: " + dialog.returnValue);
