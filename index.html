@@ -16,24 +16,43 @@
 
     <button commandfor="confirm-dialog" command="show-modal">CLICK ME!!!</button>
     <dialog id="confirm-dialog">
-    <header>
-        <h1>Do You Love Me?</h1>
-    </header>
-    <p>Be Sure With Your Answer</p>
-    <footer>
-        <button commandfor="confirm-dialog" command="close" value="Yes">
-        Yes
-        </button>
-        <button commandfor="confirm-dialog" command="close" value="No">
-        No
-        </button>
-    </footer>
+        <header>
+            <h1>Do You Love Me?</h1>
+        </header>
+        <p>Be Sure With Your Answer</p>
+        <footer>
+            <button commandfor="confirm-dialog" command="close" value="Yes">Yes</button>
+            <button commandfor="confirm-dialog" command="close" value="No">No</button>
+        </footer>
     </dialog>
+
+    <pre id="log"></pre>
 
     <video width="640" height="360" controls>
         <source src="kisses.mp4" type="video/mp4">
     </video>
 
+    <script>
+        const dialog = document.getElementById("confirm-dialog");
+        const logEl = document.getElementById("log");
+
+        function log(message) {
+            logEl.textContent += message + "\n";
+        }
+
+        dialog.addEventListener("close", () => {
+            switch (dialog.returnValue) {
+                case "Yes":
+                    log("Omg wait really? I love you too yayyy yipeee");
+                    break;
+                case "No":
+                    log("Oh its fine... I never loved you back anyway...");
+                    break;
+                default:
+                    log("Closed with value: " + dialog.returnValue);
+            }
+        });
+    </script>
 
 </body>
 </html>
